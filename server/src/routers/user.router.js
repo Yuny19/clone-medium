@@ -1,16 +1,16 @@
 const router = require('express').Router();
-import User from '../controllers/user.controller';
-import authent from '../middleware/authentication';
-import authori from '../middleware/authorization';
+const User = require('../controllers/user.controller');
+const authent = require('../middleware/authentication');
+const authori = require('../middleware/authorization');
 
 router.post('/', User.create);
 
-router.post('/login/manual', User.loginManual);
+router.post('/login/google', User.loginGoogle);
 
-router.get('/', authent, User.read);
+router.post('/login/admin', User.loginAdmin);
 
-router.get('/:id', authent, authori, User.findId)
+router.get('/', User.read);
 
-router.put('/:id', authent, authori, User.update);
+router.get('/:id', authent, authori, User.findId);
 
-export default router;
+module.exports = router;   

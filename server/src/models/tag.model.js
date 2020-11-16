@@ -13,6 +13,7 @@ const tagSchema = new schema({
         timestamps: true
 
     });
+
 const Tags = mongoose.model('Tags', tagSchema);
 
 module.exports = Tags;

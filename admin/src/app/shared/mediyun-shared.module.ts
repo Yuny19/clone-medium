@@ -5,13 +5,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
-    ReactiveFormsModule,
-
+    ReactiveFormsModule
   ]
 })
 export class MediyunSharedModule {}

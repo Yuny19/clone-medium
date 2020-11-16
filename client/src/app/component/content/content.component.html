@@ -1,0 +1,6 @@
+<div class="container">
+    <h1>{{ isi?.title }}</h1> 
+    <div class="publish">By: {{ isi?.creator?.name }} | {{ isi?.createdAt | date: 'short'}}</div>
+    <img src={{isi?.gambar}}>
+    <p> {{ isi?.content }}</p>
+</div>

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const schema = mongoose.Schema;
+var mongoosePaginate = require('mongoose-paginate');
 
 var validateEmail = function (email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -26,7 +27,7 @@ const userSchema = new schema({
     role: {
         type: String,
         required: true,
-        default: 'member'
+        default: 'customer'
     },
     token: {
         type: String
@@ -66,6 +67,7 @@ userSchema.path('email').validate(
             }),
     'Email Already Exists!!!',
 );
+userSchema.plugin(mongoosePaginate);
 
 const Users = mongoose.model('Users', userSchema);
 

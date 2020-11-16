@@ -1,0 +1,30 @@
+.content-row{
+    height: 150px;
+    margin-top: 20px;
+}
+.content-img{
+    width: 250px;
+    height: 150px;
+    border-radius: 2px;
+}
+
+.content-desc{
+    text-align: justify;
+    margin-left: 5px;
+}
+
+.publisher{
+    color: gray;
+    font-size: 12px;
+    margin-bottom: 1rem;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover{
+    color: gray;
+}

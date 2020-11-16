@@ -10,9 +10,19 @@ const port = process.env.PORT;
 
 mongoose.connect(`mongodb://localhost:27017/${process.env.DB_NAME}`, {useNewUrlParser: true, useUnifiedTopology: true});
 
+const userRouter = require('./routers/user.router');
+const tagRouter = require('./routers/tag.router');
+const contentRouter = require('./routers/content.router');
+
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+
+app.use('/user', userRouter);
+app.use('/tag', tagRouter);
+app.use('/content', contentRouter);
+
 
 
 app.get('*', (req, res) => {

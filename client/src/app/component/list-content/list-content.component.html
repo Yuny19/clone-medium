@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row content-row" *ngFor="let content of contents">
+        <div class="col-md-3">
+            <img class="content-img" src={{content.gambar}}>
+        </div>
+        <div class="col-md-9">
+            <h2><a [routerLink]="['detail/'+content._id]">{{ content.title }}</a></h2>
+            <div class="row publisher">
+                <div class="col-md-6">
+                    creator: {{ content.creator.name }}
+                </div>
+                <div class="col-md-6">
+                    publish: {{ content.createdAt | date: 'short' }}
+                </div>
+            </div>
+            <div class="row content-desc">
+                {{ content.content | ellipsis: 400 }}
+            </div> 
+        </div>
+    </div>
+</div>

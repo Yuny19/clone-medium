@@ -1,0 +1,35 @@
+.container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.container h1 {
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 2rem;
+}
+
+.container img {
+    margin: 1rem 0 2rem 0;
+    width: 800px;
+    height: 400px;
+    border-radius: 4px;
+    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container p {
+    text-align: justify;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    font-family: 'Gentium Basic', serif;
+    font-size: 20px;
+    word-spacing: normal;
+}
+
+.publish {
+    text-align: left;
+    margin-left: 10rem;
+    color: gray;
+    font-size: 14px;
+}

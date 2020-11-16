@@ -1,0 +1,29 @@
+nav{
+    background-color: rgb(3, 30, 56);
+}
+
+.navbar-link {
+    cursor: pointer;
+    color: white;
+}
+
+.navbar-link:hover {
+    text-decoration: none;
+    color: rgb(71, 97, 136);
+}
+
+.btn-log-out {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.btn-log-out:focus {
+    outline: none;
+}
+
+.btn-log-out:hover {
+    color:  rgb(71, 97, 136);
+}
+
+

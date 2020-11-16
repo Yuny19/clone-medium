@@ -1,0 +1,47 @@
+.body-login {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.form-login{
+    text-align:center;
+    margin-top: 10rem;
+}
+
+.title{
+    font-family: 'Acme', sans-serif;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+.button-join{
+    width: 15rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    background-color: white;
+    padding: 10px;
+}
+
+.button-join:hover{
+    color: rgb(16, 108, 151);
+    border-color:  rgb(16, 108, 151);
+}
+
+.icon{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+p{
+    margin-top: 2rem;
+}
+
+a{
+    color: rgb(0, 110, 255) !important;
+    cursor: pointer;
+}
+
+a:hover{
+    color: black !important;
+}
