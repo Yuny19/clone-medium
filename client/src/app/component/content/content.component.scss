@@ -6,7 +6,7 @@
 .container h1 {
     font-family: "Merriweather", serif;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 2rem;
 }
 
@@ -32,4 +32,32 @@
     margin-left: 10rem;
     color: gray;
     font-size: 14px;
+}
+
+.container h6{
+    margin-left: 8rem;
+    text-align: left;
+}
+
+.row{
+    margin-left: 8rem;
+    margin-right: 8rem;
+    margin-bottom: 2rem;
+}
+
+.tagging{
+    border-radius: 8px;
+    background-color: gray;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    border: none;
+}
+
+.tagging:focus{
+    outline: none;
+}
+
+.tagging:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

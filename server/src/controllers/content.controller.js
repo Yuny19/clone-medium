@@ -3,9 +3,18 @@ const User = require('../models/user.model');
 
 class ContentController {
     static create(req, res) {
-        Content.create(req.body)
-            .then((data) => {
-                res.status(200).json(data)
+        User.findOne({email: req.user.email})
+        .then((data)=>{
+            return Content.create({
+                title: req.body.title,
+                content: req.body.content,
+                creator: data._id,
+                gambar: null,
+                tag: req.body.tag
+            });
+        })
+         .then((result) => {
+                res.status(200).json(result)
             })
             .catch(err => {
                 res.status(400).json({

@@ -1,6 +1,38 @@
 <div class="container">
-    <h1>{{ isi?.title }}</h1> 
-    <div class="publish">By: {{ isi?.creator?.name }} | {{ isi?.createdAt | date: 'short'}}</div>
-    <img src={{isi?.gambar}}>
-    <p> {{ isi?.content }}</p>
+    <div class="row">
+        <div class="col-md-10">
+            <h1>{{ content?.title }}</h1>
+        </div>
+        <div class="col-md-2" *ngIf="isShowButton">
+            <a 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="edit content" 
+                [routerLink]="['edit/'+content?._id]">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a> &nbsp;
+            <a 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="delete content">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <div class="publish">
+        By: {{ content?.creator?.name }} | {{ content?.createdAt | date: 'short'}}
+    </div>
+    <img 
+        src={{content?.gambar}}>
+    <p 
+        [innerHTML]="content?.content"> 
+    </p>
+    <h6>Tags: </h6>
+    <div class="row">
+        <div class="col-sm-2" *ngFor="let tag of tags">
+            <button 
+                class="tagging">{{ tag.name }}
+            </button>&nbsp;
+        </div>
+    </div>
 </div>

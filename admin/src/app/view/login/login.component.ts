@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/service';
 import { normalizeFlag } from '../../utils/form.util'
 
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     formLogin: FormGroup;
 
     constructor(private loginService: LoginService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private router: Router
     ) {
         this.formLogin = formBuilder.group({
             email: new FormControl(null),
@@ -43,9 +45,9 @@ export class LoginComponent implements OnInit {
     login() {
         console.log(this.formLogin)
         this.loginService.login(normalizeFlag(this.formLogin)).subscribe((result)=>{
-            window.localStorage.setItem('name', result.name);
-            window.localStorage.setItem('token', result.token);
-            window.location.href='/dashboard';
+            localStorage.setItem('name', result.name);
+            localStorage.setItem('token', result.token);
+            this.router.navigateByUrl('/dashboard');
         })
     }
 }

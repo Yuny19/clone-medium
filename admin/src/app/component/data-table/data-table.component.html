@@ -1,19 +1,88 @@
-<ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
-  [rowHeight]="50" [scrollbarV]="true" [sorts]="[{prop: 'name', dir: 'desc'}]">
-
-  <ngx-datatable-column name="Name">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{row.company}}
-    </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column name="Role">
-    <ng-template let-row="row" ngx-datatable-cell-template>
-      {{row.name}}
-    </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column name="Gender">
-  </ngx-datatable-column>
-
-</ngx-datatable>
+<div class="card">
+  <div class="card-header">
+    <div class="clearfix">
+      <span class="float-left font-weight-bold mt-2">
+        Table User
+      </span>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <ngx-datatable
+          #table
+          (page)="getUser($event.offset + 1)"
+          (sort)="sortTableFn(page, $event); getUser();"
+          [columnMode]="ColumnMode.force"
+          [count]="totalElements"
+          [externalPaging]="true"
+          [externalSorting]="true"
+          [footerHeight]="50"
+          [headerHeight]="50"
+          [limit]="page.limit"
+          [loadingIndicator]="loadingIndicator"
+          [offset]="offset"
+          [rowHeight]="50"
+          [rows]="rows"
+          [scrollbarH]="true"
+          class="material striped"
+        >
+  
+          <!-- Name -->
+          <ngx-datatable-column
+            [draggable]="false"
+            [sortable]="true"
+            name="Name"
+            prop="name"
+          >
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value  }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <!-- Email -->
+          <ngx-datatable-column
+            [cellClass]="'d-none d-md-inline'"
+            [draggable]="false"
+            [headerClass]="'d-none d-md-inline'"
+            [sortable]="true"
+            name="Email"
+            prop="email"
+          >
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value  }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <!-- Role -->
+          <ngx-datatable-column
+            [cellClass]="'d-none d-md-inline'"
+            [draggable]="false"
+            [headerClass]="'d-none d-md-inline'"
+            [sortable]="true"
+            name="Role"
+            prop="role"
+          >
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value  }}
+            </ng-template>
+          </ngx-datatable-column>
+  
+          <!-- Process -->
+          <ngx-datatable-column
+            [cellClass]="'d-none d-md-inline'"
+            [draggable]="false"
+            [headerClass]="'d-none d-md-inline'"
+            [sortable]="true"
+            name="Sign in"
+            prop="process"
+          >
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{ value  }}
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>

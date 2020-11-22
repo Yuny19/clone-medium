@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from '@angular/router';
-import { ContentService } from 'src/app/service/content.service';
+import { Component, Input, OnInit } from "@angular/core";
+import { Content, Tag } from 'src/app/model';
 
 @Component({
     selector: 'content',
@@ -10,17 +9,14 @@ import { ContentService } from 'src/app/service/content.service';
 
 export class ContentComponent implements OnInit {
 
-    isi: any;
-    id: string = "";
-    constructor(private contentService: ContentService,
-        private activatedRoute: ActivatedRoute) { }
+    @Input() content: Content;
+    @Input() tags: Tag;
+    @Input() isShowButton: boolean = false;
+
+    constructor() { }
 
     ngOnInit() {
-        this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
-        this.contentService.getDetail(this.id).subscribe((content) => {
-            this.isi = content;
-        })
     }
 
 }

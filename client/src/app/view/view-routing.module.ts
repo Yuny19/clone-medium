@@ -1,31 +1,29 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { MyStoryComponent } from './my-story/my-story.component';
-import { DetailContentComponent } from './detail-content/detail-content.component';
 import { NewStoryComponent } from './new-story/new-story.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: LoginComponent
-    },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
-    },
-    {
-        path: 'my-story',
-        component: MyStoryComponent
-    },
-    {
-        path: 'new-story',
-        component: NewStoryComponent
-    },
-    {
-        path: 'detail/:id',
-        component: DetailContentComponent
+        children: [
+            {
+                path: '',
+                redirectTo: '/story',
+                pathMatch: 'full'
+            },
+            {
+                path: 'story',
+                loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule)
+            },
+            {
+                path: 'my-story',
+                loadChildren: () => import('./my-story/my-story.module').then(mod => mod.MyStoryModule)
+            },
+            {
+                path: 'new-story',
+                component: NewStoryComponent
+            }
+        ]
     }
 ];
 

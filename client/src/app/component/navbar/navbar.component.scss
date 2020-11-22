@@ -12,6 +12,20 @@ nav{
     color: rgb(71, 97, 136);
 }
 
+.dropdown-menu{
+    background-color:  rgb(44, 67, 94);
+}
+
+.dropdown-item{
+    background-color:  rgb(44, 67, 94);
+    color: white;
+}
+
+.dropdown-item:hover{
+    background-color:   rgb(3, 30, 56);
+    color: gray;
+}
+
 .btn-log-out {
     background-color: transparent;
     border: none;
@@ -25,4 +39,5 @@ nav{
 .btn-log-out:hover {
     color:  rgb(71, 97, 136);
 }
+
 

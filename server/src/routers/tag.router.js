@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const Tag = require('../controllers/tag.controller');
+const authent = require('../middleware/authentication')
 
-router.post('/', Tag.create);
+router.post('/', authent, Tag.create);
 
-router.get('/', Tag.readAll);
+router.get('/', authent, Tag.readAll);
 
 module.exports = router; 

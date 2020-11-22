@@ -1,16 +1,25 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
+import { DatatableComponent } from '@swimlane/ngx-datatable';
 
 const routes: Routes = [
     {
-        path:'',
-        component: LoginComponent
-    },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
+        path: '',
+        children: [
+            {
+                path: '',
+                redirectTo: '/dashboard',
+                pathMatch: 'full'
+            },
+            {
+                path: 'dashboard',
+                loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule)
+            },
+            {
+                path:'manage-user',
+                loadChildren:() => import('./../component/data-table/data-table.module').then(mod => mod.DataTableModule)
+            }
+        ]
     }
 ];
 

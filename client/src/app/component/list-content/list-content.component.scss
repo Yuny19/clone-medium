@@ -1,6 +1,8 @@
 .content-row{
     height: 150px;
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    padding-bottom: 1rem;
 }
 .content-img{
     width: 250px;
@@ -27,4 +29,11 @@ a{
 
 a:hover{
     color: gray;
+}
+
+@media(max-width: 600px){
+    .content-row{
+        width: auto;
+        margin: 2rem auto 20rem auto;
+    }
 }

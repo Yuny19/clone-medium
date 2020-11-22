@@ -1,0 +1,51 @@
+<div class="container">
+    <form 
+        (ngSubmit)="onSubmit()" 
+        [formGroup]="form">
+        <div class="form-group">
+            <label class="col-form-label required" for="title">Title</label>
+            <input 
+                class="form-control" 
+                formControlName="title" 
+                id="title" 
+                name="title" 
+                required type="text" />
+        </div>
+        <div class="form-group">
+            <label class="col-form-label required" for="gambar">Picture</label>
+            <input 
+                type="file"
+                class="form-control" 
+                id="gambar" 
+                name="gambar" 
+                formControlName="gambar"
+                (change)="handleFile($event.target.files)" 
+                required>
+        </div>
+        <div class="form-group">
+            <ckeditor 
+                formControlName="content" 
+                id="content"
+                name="content" 
+                required 
+                [config]="ckeConfig" 
+                debounce="500">
+            </ckeditor>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label required" for="tag">Tag</label>
+            <ng-select 
+                [items]="tags" 
+                bindLabel="name" 
+                bindValue="_id"
+                placeholder="Select Category" 
+                appendTo="body"
+                multiple="true" 
+                formControlName="tag">
+            </ng-select>
+        </div>
+        <button class="btn btn-sm btn-primary" type="submit">
+            <i class="fa fa-check"></i> Submit
+        </button>
+    </form>
+</div>

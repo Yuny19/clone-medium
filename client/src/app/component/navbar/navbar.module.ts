@@ -1,4 +1,6 @@
 import { NgModule } from "@angular/core";
+import { RouterModule } from '@angular/router';
+import { AuthSharedModule } from 'src/app/shared/auth-shared.module';
 import { NavbarComponent } from './navbar.component';
 
 @NgModule({
@@ -7,7 +9,11 @@ import { NavbarComponent } from './navbar.component';
     ],
     exports:[
         NavbarComponent
+    ],
+    imports:[
+        AuthSharedModule,
+        RouterModule
     ]
 })
 
-export class NavbarModule{}
+export class NavbarModule{} 

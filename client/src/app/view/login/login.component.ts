@@ -5,6 +5,7 @@ import { GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { normalizeFlag } from '../../utils/form.util'
 import { LoginService } from 'src/app/service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'login',
@@ -22,9 +23,11 @@ export class LoginComponent implements OnInit {
     
     formLogin: FormGroup;
 
+
     constructor(private authService: AuthService,
         private loginService: LoginService,
-        private formBuilder: FormBuilder
+        private formBuilder: FormBuilder,
+        private router: Router
         ) {
         this.formLogin = formBuilder.group({
             idToken: new FormControl(null)
@@ -65,14 +68,10 @@ export class LoginComponent implements OnInit {
         this.formLogin.get('idToken').setValue(user.idToken);
 
         this.loginService.login(normalizeFlag(this.formLogin)).subscribe((result)=>{
-            window.localStorage.setItem('name', result.name);
-            window.localStorage.setItem('token', result.token);
-            window.location.href='/dashboard';
+            localStorage.setItem('name', result.name);
+            localStorage.setItem('token', result.token);
+            this.router.navigateByUrl('/story');
         });
-    }
-
-    signOut(): void {
-        this.authService.signOut();
     }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Content } from 'src/app/model';
+import { ContentService } from 'src/app/service';
 
 @Component({
     selector: 'my-story',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyStoryComponent implements OnInit{
 
-    constructor(){}
+    contents: Content[];
+    constructor(private contentService: ContentService){}
 
     ngOnInit(){
-        
+        this.contentService.getMyStory().subscribe((data: Content[])=>{
+            this.contents= data;
+        });
     }
 }

@@ -54,7 +54,7 @@ class UserController {
                     token: data.token
                 });
             })
-            .catch(err => {
+            .catch((err) => {
                 res.status(404).json({
                     message: err.message
                 })
@@ -93,12 +93,14 @@ class UserController {
     }
 
     static read(req, res) {
-        
-        User.paginate({}, { page: 1, limit: 10 })
-            .then(data => {
-                res.status(200).json({
-                    data: data
-                });
+        const { page, limit } = req.query;
+        const options = {
+          page: parseInt(page, 10) || 1,
+          limit: parseInt(limit, 10) || 10,
+        };
+        User.paginate({}, options)
+            .then((data) => {
+                res.status(200).json(data);
             })
             .catch((err) => {
                 res.status(404).json({

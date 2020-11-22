@@ -1,6 +1,9 @@
 const express = require('express');
 const ENV = require('dotenv');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const upload = multer();
+var bodyParser = require('body-parser');
 
 ENV.config();
 
@@ -15,8 +18,17 @@ const tagRouter = require('./routers/tag.router');
 const contentRouter = require('./routers/content.router');
 
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+// for parsing application/json
+app.use(bodyParser.json()); 
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true })); 
+//form-urlencoded
+
+// for parsing multipart/form-data
+app.use(upload.array()); 
+app.use(express.static('public')); 
+
 app.use(cors());
 
 app.use('/user', userRouter);

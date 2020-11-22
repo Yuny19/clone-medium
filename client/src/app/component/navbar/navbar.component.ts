@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'angularx-social-login';
 
 @Component({
     selector: 'navbar',
-    styleUrls: ['./navbar.component.css'],
+    styleUrls: ['./navbar.component.scss'],
     templateUrl: './navbar.component.html'
 })
 export class NavbarComponent implements OnInit {
 
     name: string;
 
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService,
+        private router: Router) { }
 
     ngOnInit() {
-        this.name = window.localStorage.getItem('name')
+        this.name = localStorage.getItem('name')
     }
 
     signOut(): void {
         this.authService.signOut();
+        localStorage.clear();
+        this.router.navigateByUrl('/login');
     }
 
 }

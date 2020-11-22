@@ -7,5 +7,7 @@ export interface Content {
     title: string,
     gambar: string,
     content: string,
-    creator: User
+    creator: User,
+    createdAt?: Date,
+    updatedAt?: Date
 }
