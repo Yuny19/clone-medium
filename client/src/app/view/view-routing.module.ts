@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { NewStoryComponent } from './new-story/new-story.component';
 
 const routes: Routes = [
     {
@@ -18,10 +17,6 @@ const routes: Routes = [
             {
                 path: 'my-story',
                 loadChildren: () => import('./my-story/my-story.module').then(mod => mod.MyStoryModule)
-            },
-            {
-                path: 'new-story',
-                component: NewStoryComponent
             }
         ]
     }

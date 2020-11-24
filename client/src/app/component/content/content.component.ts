@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 import { Content, Tag } from 'src/app/model';
+import { ContentService } from '../../service';
 
 @Component({
     selector: 'content',
@@ -13,10 +15,17 @@ export class ContentComponent implements OnInit {
     @Input() tags: Tag;
     @Input() isShowButton: boolean = false;
 
-    constructor() { }
+    constructor(private contentService: ContentService,
+        private router: Router) { }
 
     ngOnInit() {
 
+    }
+
+    deleteContent(id: string) {
+        this.contentService.delete(id).subscribe(() => {
+            this.router.navigateByUrl('my-story')
+        });
     }
 
 }

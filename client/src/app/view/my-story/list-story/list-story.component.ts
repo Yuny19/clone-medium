@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Content } from 'src/app/model';
-import { ContentService } from 'src/app/service';
+import { Content } from '../../../model';
+import { ContentService } from '../../../service';
 
 @Component({
-    selector: 'my-story',
-    styleUrls:['./my-story.component.scss'],
-    templateUrl: './my-story.component.html'
+    selector: 'list-story',
+    templateUrl: './list-story.component.html'
 })
-export class MyStoryComponent implements OnInit{
+export class ListStoryComponent implements OnInit{
 
     contents: Content[];
     constructor(private contentService: ContentService){}

@@ -2,7 +2,6 @@ import { Content } from '../../model';
 import { Component, Input, OnInit } from "@angular/core";
 import { ContentService } from 'src/app/service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({

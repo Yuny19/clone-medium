@@ -1,15 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Tag } from 'src/app/model';
-import { ContentService } from '../../service';
-import { TagService } from '../../service';
+import { Tag } from '../../../model';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ContentService, TagService } from '../../../service';
 
 @Component({
   selector: 'form-story',
-  templateUrl: './form-story.component.html',
-  styleUrls: ['./form-story.component.scss']
+  templateUrl: './form-story.component.html'
 })
 export class FormStoryComponent implements OnInit {
   name = 'ng2-ckeditor';
@@ -28,7 +27,8 @@ export class FormStoryComponent implements OnInit {
     private tagService: TagService,
     private activatedRoute: ActivatedRoute,
     private toastrService: ToastrService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.form = formBuilder.group({
       title: new FormControl(null),
@@ -75,7 +75,6 @@ export class FormStoryComponent implements OnInit {
 
   onSubmit() {
     let tags = this.form.value.tag;
-    console.log(tags)
     const formData = new FormData();
     formData.append('title', this.form.value.title);
     formData.append('content', this.form.value.content);
@@ -87,7 +86,7 @@ export class FormStoryComponent implements OnInit {
     // formData.append('gambar', this.fileToUpload);
 
     if (this.id) {
-      this.contentService.update(this.id, formData).subscribe(() => {
+      this.contentService.update(this.id, formData).subscribe((data) => {
         this.toastrService.success("content have been updated");
         this.router.navigateByUrl('/my-story');
       });

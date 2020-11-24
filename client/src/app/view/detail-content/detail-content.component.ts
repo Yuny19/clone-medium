@@ -4,7 +4,6 @@ import { ContentService } from 'src/app/service';
 
 @Component({
     selector: 'detail-content',
-    styleUrls:['./detail-content.component.scss'],
     templateUrl: './detail-content.component.html'
 })
 export class DetailContentComponent implements OnInit{

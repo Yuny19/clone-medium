@@ -8,10 +8,11 @@
                 data-toggle="tooltip" 
                 data-placement="top" 
                 title="edit content" 
-                [routerLink]="['edit/'+content?._id]">
+                [routerLink]="['edit']">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a> &nbsp;
             <a 
+                (click)="deleteContent(content._id)"
                 data-toggle="tooltip" 
                 data-placement="top" 
                 title="delete content">

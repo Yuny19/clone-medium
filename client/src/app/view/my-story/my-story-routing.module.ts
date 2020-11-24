@@ -1,14 +1,18 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { MyStoryComponent } from './my-story.component';
 import { DetailContentComponent } from '../detail-content/detail-content.component';
-import { FormStoryComponent } from 'src/app/component/form-story/form-story.component';
+import { FormStoryComponent } from './form-story/form-story.component';
+import { ListStoryComponent } from './list-story/list-story.component';
 
 const routes: Routes = [
 
     {
         path: '',
-        component: MyStoryComponent
+        component: ListStoryComponent
+    },
+    {
+        path: 'add',
+        component: FormStoryComponent
     },
     {
         path: 'edit/:id',
@@ -16,13 +20,16 @@ const routes: Routes = [
     },
     {
         path: 'detail/:id',
-        component: DetailContentComponent,
-        data:{
-            editable: true
-        },
-        children:[
+        children: [
             {
-                path:'edit/:id',
+                path: '',
+                component: DetailContentComponent,
+                data: {
+                    editable: true
+                }
+            },
+            {
+                path: 'edit',
                 component: FormStoryComponent
             }
         ]

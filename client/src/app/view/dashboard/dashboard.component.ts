@@ -4,7 +4,6 @@ import { Content } from '../../model';
 
 @Component({
     selector: 'dashboard',
-    styleUrls:['./dashboard.component.css'],
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit{

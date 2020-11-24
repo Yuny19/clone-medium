@@ -63,9 +63,8 @@ userSchema.path('email').validate(
                 return true;
             })
             .catch((err) => {
-                throw err;
+                throw 'Email Already Exists!!!';
             }),
-    'Email Already Exists!!!',
 );
 userSchema.plugin(mongoosePaginate);
 
