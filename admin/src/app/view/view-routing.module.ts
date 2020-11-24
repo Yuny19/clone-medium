@@ -17,7 +17,7 @@ const routes: Routes = [
             },
             {
                 path:'manage-user',
-                loadChildren:() => import('./../component/data-table/data-table.module').then(mod => mod.DataTableModule)
+                loadChildren:() => import('./manage-user/manage-user.module').then(mod => mod.ManageUserModule)
             }
         ]
     }

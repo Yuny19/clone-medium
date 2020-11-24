@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ColumnMode } from '@swimlane/ngx-datatable';
-import { PageRequest } from '../../model/page-request.model';
-import { PagedApiResponse } from '../../model/paged-api-response.model';
-import { User } from '../../model';
-import { UserService } from '../../service/user.service';
-import { sortTableFn } from '../../utils/table.util';
 import { finalize } from 'rxjs/operators';
+import { PageRequest } from '../../../model/page-request.model';
+import { PagedApiResponse } from '../../../model/paged-api-response.model';
+import { User } from '../../../model';
+import { UserService } from '../../../service/user.service';
+import { sortTableFn } from '../../../utils/table.util';
 
 @Component({
   selector: 'data-table',

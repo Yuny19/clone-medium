@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
-import { DataTableComponent } from './data-table.component';
+import { DataTableComponent } from './data-table/data-table.component';
 
 const routes: Routes = [
 
@@ -15,4 +15,4 @@ const routes: Routes = [
     exports: [RouterModule],
 })
 
-export class DataTableRoutingModule { }
+export class ManageUserRoutingModule { }

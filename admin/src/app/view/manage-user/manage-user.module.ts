@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MediyunSharedModule } from 'src/app/shared/mediyun-shared.module';
-import { DataTableRoutingModule } from './data-table-routing.module';
-import { DataTableComponent } from './data-table.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { ManageUserRoutingModule } from './manage-user-routing.module';
 
 @NgModule({
     declarations:[
@@ -14,8 +14,8 @@ import { DataTableComponent } from './data-table.component';
     imports:[
         MediyunSharedModule,
         NgxDatatableModule,
-        DataTableRoutingModule
+        ManageUserRoutingModule
     ] 
 })
 
-export class DataTableModule{}
+export class ManageUserModule{}
