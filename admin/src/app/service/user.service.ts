@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { AppModule } from '../app.module';
 import { User } from '../model';
 import { PageRequest } from '../model/page-request.model';
@@ -13,7 +14,7 @@ export class UserService {
 
     getUser(page: PageRequest): Observable<PagedApiResponse<User>> {
         return this.http.get<PagedApiResponse<User>>(
-            `http://localhost:3000/user`,
+            `${environment.baseUrl}/user`,
             {
                 params: page.requestParam
             }

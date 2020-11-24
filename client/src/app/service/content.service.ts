@@ -3,6 +3,7 @@ import { Content } from '../model';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { AppModule } from '../app.module';
+import { constant } from '../../environments/constant';
 
 
 @Injectable({ providedIn: AppModule })
@@ -12,28 +13,28 @@ export class ContentService {
 
     getContent(): Observable<Array<Content>> {
         return this.http.get<Array<Content>>(
-            `http://localhost:3000/content/`);
+            `${constant.contentUrl}/`);
     }
 
     getDetail(id: string): Observable<Content> {
         return this.http.get<Content>(
-            `http://localhost:3000/content/detail/${id}`);
+            `${constant.contentUrl}/detail/${id}`);
     }
 
     getMyStory(): Observable<Array<Content>> {
         return this.http.get<Array<Content>>(
-            `http://localhost:3000/content/myStory`);
+            `${constant.contentUrl}/myStory`);
     }
 
     add(newData: any): Observable<Content> {
-        return this.http.post<Content>(`http://localhost:3000/content/`, newData);
+        return this.http.post<Content>(`${constant.contentUrl}/`, newData);
     }
 
     update(id: string, updateData: any): Observable<Content> {
-        return this.http.put<Content>(`http://localhost:3000/content/${id}`, updateData);
+        return this.http.put<Content>(`${constant.contentUrl}/${id}`, updateData);
     }
 
     delete(id: string): Observable<Content>{
-        return this.http.delete<Content>(`http://localhost:3000/content/${id}`);
+        return this.http.delete<Content>(`${constant.contentUrl}/${id}`);
     }
 } 

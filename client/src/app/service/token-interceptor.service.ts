@@ -1,6 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http'
 import { AuthService } from '../service/auth.service';
+import { constant } from '../../environments/constant';
 
 @Injectable({ providedIn: 'root' })
 export class TokenInterceptorService implements HttpInterceptor {
@@ -9,7 +10,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   intercept(req, next) {
     let authService = this.injector.get(AuthService);
-    if (req.url === 'http://localhost:3000/user/login/google') {
+    if (req.url === `${constant.userUrl}/login/google`) {
       return next.handle(req);
     } 
     else {

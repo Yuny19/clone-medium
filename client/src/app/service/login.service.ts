@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
+import { constant } from '../../environments/constant';
 import { AppModule } from '../app.module';
 import { User } from '../model';
 
@@ -12,6 +13,6 @@ export class LoginService {
 
     login(data: any): Observable<User> {
         return this.http.post<User>(
-            'http://localhost:3000/user/login/google', data); 
+            `${constant.userUrl}/login/google`, data); 
     }
 } 

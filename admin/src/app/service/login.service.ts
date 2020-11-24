@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AppModule } from '../app.module';
 import { User } from '../model/user.model';
 
@@ -12,6 +13,6 @@ export class LoginService {
 
     login(data: any): Observable<User> {
         return this.http.post<User>(
-            'http://localhost:3000/user/login/admin', data); 
+            `${environment.baseUrl}/user/login/admin`, data); 
     }
 } 
