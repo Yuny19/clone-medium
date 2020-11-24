@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastNoAnimationModule, ToastrModule } from 'ngx-toastr';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './service/auth.service';
@@ -23,6 +23,7 @@ import { AuthSharedModule } from './shared/auth-shared.module';
     AppRoutingModule,
     HttpClientModule,
     AuthSharedModule,
+    ToastNoAnimationModule,
     ToastrModule.forRoot()
   ],
   providers: [AuthService, AuthGuard,

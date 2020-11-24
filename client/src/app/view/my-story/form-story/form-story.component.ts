@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Tag } from '../../../model';
+import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ContentService, TagService } from '../../../service';
@@ -25,6 +26,7 @@ export class FormStoryComponent implements OnInit {
     private contentService: ContentService,
     private tagService: TagService,
     private activatedRoute: ActivatedRoute,
+    private toastrService: ToastrService,
     private router: Router,
     private location: Location
   ) {
@@ -85,10 +87,12 @@ export class FormStoryComponent implements OnInit {
 
     if (this.id) {
       this.contentService.update(this.id, formData).subscribe((data) => {
+        this.toastrService.success("content have been updated");
         this.router.navigateByUrl('/my-story');
       });
     } else {
       this.contentService.add(formData).subscribe(() => {
+        this.toastrService.success("content have been created");
         this.router.navigateByUrl('/my-story');
       });
     }

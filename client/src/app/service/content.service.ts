@@ -4,12 +4,14 @@ import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
 import { AppModule } from '../app.module';
 import { constant } from '../../environments/constant';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({ providedIn: AppModule })
 export class ContentService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+        private toastrService: ToastrService) { }
 
     getContent(): Observable<Array<Content>> {
         return this.http.get<Array<Content>>(
